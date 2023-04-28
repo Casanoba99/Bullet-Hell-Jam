@@ -1,11 +1,14 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerInput : MonoBehaviour
 {
+    bool ammo = true;
+    int currentShots;
     float X, Y;
     Animator anim;
     Coroutine shootCoro;
@@ -15,26 +18,39 @@ public class PlayerInput : MonoBehaviour
     public Vector2 inputVector;
 
     [Header("Shot")]
+    public int maxShots;
     public float timeShot;
     public float forceShot;
     public Transform shotPos;
     public GameObject proyectile;
+    public TextMeshProUGUI shotsTMP;
     public CinemachineVirtualCamera vCam;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        currentShots = maxShots;
+        shotsTMP.text = currentShots.ToString();
     }
 
     void Update()
     {
-        Move();
-        Rotation();
+        if (ammo)
+        {
+            Move();
+            Rotation();
+        }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && currentShots > 0)
         {
             Start_Shoot();
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+        }
+        else if (currentShots <= 0 && ammo)
+        {
+            anim.SetTrigger("Fall");
+            anim.SetBool("Floor", false);
+            ammo = false;
         }
         else
         {
@@ -45,7 +61,7 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Suelo"))
+        if (collision.CompareTag("Suelo") && ammo)
         {
             anim.SetBool("Floor", true);
         }
@@ -90,6 +106,8 @@ public class PlayerInput : MonoBehaviour
         GameObject shot = Instantiate(proyectile, shotPos.position, shotPos.rotation, shotPos.transform);
         shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * forceShot, ForceMode2D.Impulse);
         shot.transform.parent = null;
+        currentShots--;
+        shotsTMP.text = currentShots.ToString();
 
         yield return new WaitForSeconds(timeShot);
         shootCoro = null;
