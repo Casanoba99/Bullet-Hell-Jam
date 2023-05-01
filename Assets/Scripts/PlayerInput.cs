@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
     public float timeShot;
     public float forceShot;
     public Transform shotPos;
-    public GameObject proyectile;
+    public GameObject projectile;
     public TextMeshProUGUI shotsTMP;
     public CinemachineVirtualCamera vCam;
 
@@ -56,6 +56,21 @@ public class PlayerInput : MonoBehaviour
         {
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
             Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy P"))
+        {
+            collision.GetComponent<Proyectile>().Hit();
+            currentShots -= 2;
+            shotsTMP.text = currentShots.ToString();
+        }
+
+        if (collision.CompareTag("End"))
+        {
+            // Cargar nivel
         }
     }
 
@@ -103,7 +118,7 @@ public class PlayerInput : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        GameObject shot = Instantiate(proyectile, shotPos.position, shotPos.rotation, shotPos.transform);
+        GameObject shot = Instantiate(projectile, shotPos.position, shotPos.rotation, shotPos.transform);
         shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * forceShot, ForceMode2D.Impulse);
         shot.transform.parent = null;
         currentShots--;
