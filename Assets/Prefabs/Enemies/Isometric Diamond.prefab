@@ -392,7 +392,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!95 &6020478649674487434
 Animator:
   serializedVersion: 4
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 10
   path: {fileID: 0}
+  point: 0
   speed: 2.5
   points:
   - {fileID: 1832006079159239769}

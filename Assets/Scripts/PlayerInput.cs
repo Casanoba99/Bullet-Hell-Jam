@@ -8,14 +8,25 @@ using UnityEngine.SceneManagement;
 public class PlayerInput : MonoBehaviour
 {
     bool ammo = true;
+    bool isDash = false;
+    bool damage = true;
     int currentShots;
     float X, Y;
     Animator anim;
-    Coroutine shootCoro;
+    Coroutine shootCoro, dashCoro;
+
+    public new GameObject light;
 
     [Header("Movement")]
     public float speed;
     public Vector2 inputVector;
+
+    [Header("Dash")]
+    public float dashPower;
+    public float dashTime;
+    public float dashCooldown;
+    public Rigidbody2D rb;
+    public TrailRenderer trail;
 
     [Header("Shot")]
     public int maxShots;
@@ -29,13 +40,15 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        vCam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+        trail.emitting = false;
         currentShots = maxShots;
         shotsTMP.text = currentShots.ToString();
     }
 
     void Update()
     {
-        if (ammo)
+        if (ammo && !isDash)
         {
             Move();
             Rotation();
@@ -57,11 +70,16 @@ public class PlayerInput : MonoBehaviour
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
             Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Start_Dash();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy P"))
+        if (collision.CompareTag("Enemy P") && damage)
         {
             collision.GetComponent<Proyectile>().Hit();
             currentShots -= 2;
@@ -115,6 +133,33 @@ public class PlayerInput : MonoBehaviour
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    void Start_Dash()
+    {
+        dashCoro ??= StartCoroutine(Dash());
+    }
+
+    IEnumerator Dash()
+    {
+        damage = false;
+        isDash = true;
+        rb.velocity = new Vector2(inputVector.x * dashPower, inputVector.y * dashPower);
+        trail.emitting = true;
+
+        yield return new WaitForSeconds(dashTime);
+        rb.velocity = Vector2.zero;
+        trail.emitting = false;
+        damage = true;
+        isDash = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+
+        light.SetActive(false);
+        yield return new WaitForSeconds(.05f);
+        light.SetActive(true);
+
+        dashCoro = null;
     }
     #endregion
 
