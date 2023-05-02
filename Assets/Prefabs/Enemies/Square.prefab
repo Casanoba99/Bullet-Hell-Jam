@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 7147059681068844577}
   - component: {fileID: 7147059681068844582}
   m_Layer: 7
-  m_Name: Enemy 0
+  m_Name: Square
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   life: 10
   path: {fileID: 0}
   amountShots: 5
+  time2Shoot: 5
   timeShot: 0.2
   forceShot: 5
   shotPos:

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -68,9 +68,17 @@ public class PlayerInput : MonoBehaviour
             shotsTMP.text = currentShots.ToString();
         }
 
+        //if (collision.CompareTag("Enemy"))
+        //{
+        //    collision.GetComponent<Proyectile>().Hit();
+        //    currentShots -= 5;
+        //    shotsTMP.text = currentShots.ToString();
+        //}
+
         if (collision.CompareTag("End"))
         {
             // Cargar nivel
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -130,6 +138,6 @@ public class PlayerInput : MonoBehaviour
 
     public void Dead()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

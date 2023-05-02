@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3466330760346020047}
   - component: {fileID: 6336900258425633897}
   m_Layer: 7
-  m_Name: Enemy0 Proyectile
+  m_Name: Square Proyectile
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
