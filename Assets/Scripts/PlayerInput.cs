@@ -25,6 +25,7 @@ public class PlayerInput : MonoBehaviour
     public float dashPower;
     public float dashTime;
     public float dashCooldown;
+    public GameObject clearArea;
     public Rigidbody2D rb;
     public TrailRenderer trail;
 
@@ -146,12 +147,14 @@ public class PlayerInput : MonoBehaviour
         isDash = true;
         rb.velocity = new Vector2(inputVector.x * dashPower, inputVector.y * dashPower);
         trail.emitting = true;
+        clearArea.SetActive(true);
 
         yield return new WaitForSeconds(dashTime);
         rb.velocity = Vector2.zero;
         trail.emitting = false;
         damage = true;
         isDash = false;
+        clearArea.SetActive(false);
 
         yield return new WaitForSeconds(dashCooldown);
 

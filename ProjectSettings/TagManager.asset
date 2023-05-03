@@ -9,6 +9,7 @@ TagManager:
   - Player P
   - Enemy P
   - End
+  - Clear
   layers:
   - Default
   - TransparentFX

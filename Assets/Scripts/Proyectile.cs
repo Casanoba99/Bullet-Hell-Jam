@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Proyectile : MonoBehaviour
 {
     public float timeDestroy;
     public GameObject light;
+    public SpriteRenderer sprite;
     public ParticleSystem particle;
 
     void Start()
@@ -13,10 +15,18 @@ public class Proyectile : MonoBehaviour
         Destroy(gameObject, timeDestroy);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Clear"))
+        {
+            Hit();
+        }
+    }
+
     public void Hit()
     {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        GetComponent<SpriteRenderer>().enabled = false;
+        sprite.enabled = false;
         light.SetActive(false);
         particle.Play();
 

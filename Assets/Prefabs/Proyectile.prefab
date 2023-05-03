@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDestroy: 2.5
   light: {fileID: 671625105817934990}
+  sprite: {fileID: 671625106082808610}
   particle: {fileID: 8751457898665049780}
 --- !u!1 &1363197947129306329
 GameObject:
