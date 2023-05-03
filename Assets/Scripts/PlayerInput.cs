@@ -48,9 +48,9 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (ammo && !isDash)
+        if (ammo)
         {
-            Move();
+            if (!isDash)Move();
             Rotation();
         }
 
