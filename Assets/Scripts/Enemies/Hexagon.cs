@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pentagon : MonoBehaviour
+public class Hexagon : MonoBehaviour
 {
+    bool havePath = false;
     Transform currentP;
     Coroutine shotCoro, stopCoro;
+    Animator anim;
 
     public int life;
     public OpenPath path;
@@ -17,14 +19,9 @@ public class Pentagon : MonoBehaviour
     public float speed;
     public Transform[] points;
 
-    [Header("Shoot")]
-    public float timeShot;
-    public float forceShot;
-    public Transform[] shotPos;
-    public GameObject projectile;
-
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentP = points[point];
     }
 
@@ -32,7 +29,6 @@ public class Pentagon : MonoBehaviour
     {
         if (path.playerIn)
         {
-
             transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
 
             if (transform.position == currentP.position)
@@ -42,16 +38,16 @@ public class Pentagon : MonoBehaviour
             else
             {
                 transform.Rotate(Vector3.forward, torque * Time.deltaTime);
-                Start_Shot();
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Suelo"))
+        if (collision.CompareTag("Suelo") && !havePath)
         {
             path = collision.GetComponent<OpenPath>();
+            havePath = true;
 
         }
 
@@ -74,6 +70,7 @@ public class Pentagon : MonoBehaviour
 
     IEnumerator Stop()
     {
+        anim.SetBool("Laser", false);
         yield return new WaitForSeconds(stopTime);
 
         point++;
@@ -84,26 +81,33 @@ public class Pentagon : MonoBehaviour
         }
 
         currentP = points[point];
+        anim.SetBool("Laser", true);
+
 
         stopCoro = null;
     }
 
-    public void Start_Shot()
-    {
-        shotCoro ??= StartCoroutine(Shot());
-    }
+    //public void Start_Shot()
+    //{
+    //    shotCoro ??= StartCoroutine(Shot());
+    //}
 
-    IEnumerator Shot()
-    {
-        for (int j = 0; j < shotPos.Length; j++)
-        {
-            GameObject clone = Instantiate(projectile, shotPos[j].position, shotPos[j].rotation, shotPos[j].transform);
-            clone.GetComponent<Rigidbody2D>().AddForce(shotPos[j].up * forceShot, ForceMode2D.Impulse);
-            clone.transform.parent = null;
-        }
+    //IEnumerator Shot()
+    //{
+    //    laserOut = true;
+    //    for (int j = 0; j < shotPos.Length; j++)
+    //    {
+    //        shotPos[j].gameObject.SetActive(true);
+    //    }
 
-        yield return new WaitForSeconds(timeShot);
+    //    yield return new WaitForSeconds(timeShot);
 
-        shotCoro = null;
-    }
+    //    for (int j = 0; j < shotPos.Length; j++)
+    //    {
+    //        shotPos[j].gameObject.SetActive(false);
+    //    }
+    //    laserOut = false;
+
+    //    shotCoro = null;
+    //}
 }

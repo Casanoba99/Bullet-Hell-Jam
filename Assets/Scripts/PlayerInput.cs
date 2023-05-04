@@ -82,7 +82,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (collision.CompareTag("Enemy P") && damage)
         {
-            collision.GetComponent<Proyectile>().Hit();
+            if (collision.GetComponent<Proyectile>()) collision.GetComponent<Proyectile>().Hit();
             currentShots -= 2;
             shotsTMP.text = currentShots.ToString();
         }
