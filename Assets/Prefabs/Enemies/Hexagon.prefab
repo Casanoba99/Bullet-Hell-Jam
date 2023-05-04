@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1546426832246998724}
   - component: {fileID: 1546426832246998725}
   - component: {fileID: 1546426832246998726}
-  m_Layer: 7
-  m_Name: ShotPos (2)
+  - component: {fileID: 8234138901982120317}
+  m_Layer: 9
+  m_Name: Laser
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +224,19 @@ PolygonCollider2D:
       - {x: -0.438488, y: 0.2517943}
       - {x: -0.4384424, y: -0.25484878}
       - {x: 0.0016126619, y: -0.5079033}
+--- !u!114 &8234138901982120317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546426832246998728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &1546426833286488967
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,8 +249,9 @@ GameObject:
   - component: {fileID: 1546426833286488963}
   - component: {fileID: 1546426833286488964}
   - component: {fileID: 1546426833286488965}
-  m_Layer: 7
-  m_Name: ShotPos (1)
+  - component: {fileID: 5271263774263477023}
+  m_Layer: 9
+  m_Name: Laser
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,6 +461,19 @@ PolygonCollider2D:
       - {x: -0.438488, y: 0.2517943}
       - {x: -0.4384424, y: -0.25484878}
       - {x: 0.0016126619, y: -0.5079033}
+--- !u!114 &5271263774263477023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546426833286488967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &3265587152752336927
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +875,7 @@ MonoBehaviour:
   life: 10
   path: {fileID: 0}
   point: 1
-  torque: -60
+  torque: -45
   stopTime: 2
   speed: 3
   points:
@@ -855,6 +883,7 @@ MonoBehaviour:
   - {fileID: 3265587153783581346}
   - {fileID: 4532778022561065626}
   - {fileID: 4532778022613320983}
+  laser: {fileID: 7579624481026956525}
 --- !u!1 &7471520758574987966
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,8 +896,9 @@ GameObject:
   - component: {fileID: 7471520758574987964}
   - component: {fileID: 7471520758574987965}
   - component: {fileID: 7471520758574987963}
-  m_Layer: 7
-  m_Name: ShotPos
+  - component: {fileID: 617717600850441245}
+  m_Layer: 9
+  m_Name: Laser
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1078,6 +1108,19 @@ PolygonCollider2D:
       - {x: -0.438488, y: 0.2517943}
       - {x: -0.4384424, y: -0.25484878}
       - {x: 0.0016126619, y: -0.5079033}
+--- !u!114 &617717600850441245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471520758574987966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &7471520759221510823
 GameObject:
   m_ObjectHideFlags: 0

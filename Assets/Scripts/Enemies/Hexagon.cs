@@ -81,8 +81,8 @@ public class Hexagon : MonoBehaviour
         }
 
         currentP = points[point];
-        anim.SetBool("Laser", true);
 
+        anim.SetBool("Laser", true);
 
         stopCoro = null;
     }

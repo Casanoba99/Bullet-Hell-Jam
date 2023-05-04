@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 878198052282336570}
   - component: {fileID: 3466330760346020047}
   - component: {fileID: 6336900258425633897}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square Proyectile
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878198052546239129}
   - component: {fileID: 878198052546239110}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4834977015751799119}
   - component: {fileID: 6002582316335445426}
   - component: {fileID: 5001514942924351676}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

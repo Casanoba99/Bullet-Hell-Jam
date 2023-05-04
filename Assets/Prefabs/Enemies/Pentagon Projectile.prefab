@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5594870213680988867}
   - component: {fileID: 5594870213680988865}
   - component: {fileID: 5594870213680988866}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5594870214460203424}
   - component: {fileID: 5594870214460203425}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5032,7 +5032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5594870214733360604}
   - component: {fileID: 5594870214733360606}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Enemy P
   m_Icon: {fileID: 0}
@@ -5120,7 +5120,7 @@ GameObject:
   - component: {fileID: 5594870215246074898}
   - component: {fileID: 2348448777953292191}
   - component: {fileID: 5594870215246074897}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Pentagon Projectile
   m_TagString: Enemy P
   m_Icon: {fileID: 0}

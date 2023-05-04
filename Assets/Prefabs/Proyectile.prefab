@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 671625105817934991}
   - component: {fileID: 671625105817934992}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2818975452090625838}
   - component: {fileID: 3848055910523563737}
   - component: {fileID: -3275002905513674113}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Proyectile
   m_TagString: Player P
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 6233216901463973594}
   - component: {fileID: 8751457898665049780}
   - component: {fileID: 2651055235425072317}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
