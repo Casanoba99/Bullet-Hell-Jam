@@ -57,8 +57,11 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetMouseButton(0) && currentShots > 0)
         {
-            Start_Shoot();
-            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+            if (!isDash)
+            {
+                Start_Shoot();
+                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+            }
         }
         else if (currentShots <= 0 && ammo)
         {
@@ -72,7 +75,7 @@ public class PlayerInput : MonoBehaviour
             Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && inputVector != Vector2.zero)
         {
             Start_Dash();
         }
@@ -83,16 +86,15 @@ public class PlayerInput : MonoBehaviour
         if (collision.CompareTag("Enemy P") && damage)
         {
             if (collision.GetComponent<Proyectile>()) collision.GetComponent<Proyectile>().Hit();
-            currentShots -= 2;
+            currentShots -= 10;
             shotsTMP.text = currentShots.ToString();
         }
 
-        //if (collision.CompareTag("Enemy"))
-        //{
-        //    collision.GetComponent<Proyectile>().Hit();
-        //    currentShots -= 5;
-        //    shotsTMP.text = currentShots.ToString();
-        //}
+        if (collision.CompareTag("Enemy"))
+        {
+            currentShots -= 10;
+            shotsTMP.text = currentShots.ToString();
+        }
 
         if (collision.CompareTag("End"))
         {

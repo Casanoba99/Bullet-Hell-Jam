@@ -26,7 +26,7 @@ public class Square : MonoBehaviour
 
     void Update()
     {
-        if (path.playerIn) Start_LoadShoot();
+        Start_LoadShoot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

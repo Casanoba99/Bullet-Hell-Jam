@@ -428,12 +428,12 @@ MonoBehaviour:
   life: 10
   path: {fileID: 0}
   point: 0
-  speed: 2.5
+  speed: 10
   points:
   - {fileID: 1832006079159239769}
   - {fileID: 1832006080190484203}
   amountShots: 10
-  waitTime: 4
+  waitTime: 2.5
   timeShot: 0.2
   forceShot: 5
   shotPos:

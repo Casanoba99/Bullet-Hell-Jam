@@ -33,14 +33,11 @@ public class Isometric : MonoBehaviour
 
     void Update()
     {
-        if (path.playerIn)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
 
-            if (transform.position == currentP.position)
-            {
-                Start_Stop2Shoot();
-            }
+        if (transform.position == currentP.position)
+        {
+            Start_Stop2Shoot();
         }
     }
 

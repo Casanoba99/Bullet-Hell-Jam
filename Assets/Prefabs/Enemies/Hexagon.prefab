@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1546426832246998728}
   m_LocalRotation: {x: 0, y: 0, z: -0.5, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 20, z: 0.25}
+  m_LocalScale: {x: 0.25, y: 15, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2018052281921487677}
@@ -236,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &1546426833286488967
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 1546426833286488967}
   m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 20, z: 0.25}
+  m_LocalScale: {x: 0.25, y: 15, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2018052281921487677}
@@ -473,7 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &3265587152752336927
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +760,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -875,15 +873,14 @@ MonoBehaviour:
   life: 10
   path: {fileID: 0}
   point: 1
-  torque: -45
-  stopTime: 2
+  torque: -30
+  stopTime: 1.5
   speed: 3
   points:
   - {fileID: 3265587152752336912}
   - {fileID: 3265587153783581346}
   - {fileID: 4532778022561065626}
   - {fileID: 4532778022613320983}
-  laser: {fileID: 7579624481026956525}
 --- !u!1 &7471520758574987966
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +910,7 @@ Transform:
   m_GameObject: {fileID: 7471520758574987966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 20, z: 0.25}
+  m_LocalScale: {x: 0.25, y: 15, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2018052281921487677}
@@ -1120,7 +1117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b8a356fd105ca449bd9f06de5d61c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserOrigen: {fileID: 2018052281921487677}
 --- !u!1 &7471520759221510823
 GameObject:
   m_ObjectHideFlags: 0
