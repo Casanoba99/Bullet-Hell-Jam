@@ -38,6 +38,11 @@ public class PlayerInput : MonoBehaviour
     public TextMeshProUGUI shotsTMP;
     public CinemachineVirtualCamera vCam;
 
+    [Header("Audio")]
+    public AudioSource shotSource;
+    public AudioSource dashSource;
+    public AudioSource hitSource;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -88,12 +93,14 @@ public class PlayerInput : MonoBehaviour
             if (collision.GetComponent<Proyectile>()) collision.GetComponent<Proyectile>().Hit();
             currentShots -= 10;
             shotsTMP.text = currentShots.ToString();
+            hitSource.Play();
         }
 
         if (collision.CompareTag("Enemy"))
         {
             currentShots -= 10;
             shotsTMP.text = currentShots.ToString();
+            hitSource.Play();
         }
 
         if (collision.CompareTag("End"))
@@ -150,6 +157,7 @@ public class PlayerInput : MonoBehaviour
         rb.velocity = new Vector2(inputVector.x * dashPower, inputVector.y * dashPower);
         trail.emitting = true;
         clearArea.SetActive(true);
+        dashSource.Play();
 
         yield return new WaitForSeconds(dashTime);
         rb.velocity = Vector2.zero;
@@ -178,9 +186,11 @@ public class PlayerInput : MonoBehaviour
     {
         GameObject shot = Instantiate(projectile, shotPos.position, shotPos.rotation, shotPos.transform);
         shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * forceShot, ForceMode2D.Impulse);
+        shot.name = "Player P";
         shot.transform.parent = null;
         currentShots--;
         shotsTMP.text = currentShots.ToString();
+        shotSource.Play();
 
         yield return new WaitForSeconds(timeShot);
         shootCoro = null;
