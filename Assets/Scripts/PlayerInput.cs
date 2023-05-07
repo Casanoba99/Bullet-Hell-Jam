@@ -1,6 +1,5 @@
 using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -56,7 +55,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (ammo)
         {
-            if (!isDash)Move();
+            if (!isDash) Move();
             Rotation();
         }
 
@@ -92,13 +91,15 @@ public class PlayerInput : MonoBehaviour
         {
             if (collision.GetComponent<Proyectile>()) collision.GetComponent<Proyectile>().Hit();
             currentShots -= 10;
+            if (currentShots < 0) currentShots = 0;
             shotsTMP.text = currentShots.ToString();
             hitSource.Play();
         }
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && damage)
         {
             currentShots -= 10;
+            if (currentShots < 0) currentShots = 0;
             shotsTMP.text = currentShots.ToString();
             hitSource.Play();
         }
