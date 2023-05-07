@@ -13,10 +13,19 @@ public class MenuManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioMixer mixer;
+    public Slider musicSl;
+    public Slider soundSl;
+
+    private void Start()
+    {
+        musicSl.value = PlayerPrefs.GetFloat("Music");
+        Music(PlayerPrefs.GetFloat("Music"));
+        soundSl.value = PlayerPrefs.GetFloat("Sound");
+        Sound(PlayerPrefs.GetFloat("Sound"));
+    }
 
     public void Play()
     {
-        // Fundido a negro.
         GameManager.manager.StartGameplay();
         SceneManager.LoadScene(1);
     }
@@ -31,13 +40,19 @@ public class MenuManager : MonoBehaviour
         panel.SetActive(false);
     }
 
+    #region Audio
     public void Music(float volum)
     {
         mixer.SetFloat("Music", volum);
+        PlayerPrefs.SetFloat("Music", volum);
+        PlayerPrefs.Save();
     }
 
     public void Sound(float volum)
     {
         mixer.SetFloat("Sound", volum);
-    } 
+        PlayerPrefs.SetFloat("Sound", volum);
+        PlayerPrefs.Save();
+    }
+    #endregion
 }

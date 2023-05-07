@@ -27,15 +27,24 @@ public class Hexagon : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
-
-        if (transform.position == currentP.position)
+        if (!MenuPause.mPause.pause)
         {
-            Start_Stop();
+            transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
+
+            if (transform.position == currentP.position)
+            {
+                Start_Stop();
+            }
+            else
+            {
+                transform.Rotate(Vector3.forward, torque * Time.deltaTime);
+            }
         }
         else
         {
-            transform.Rotate(Vector3.forward, torque * Time.deltaTime);
+            StopAllCoroutines();
+            shotCoro = null;
+            stopCoro = null;
         }
     }
 

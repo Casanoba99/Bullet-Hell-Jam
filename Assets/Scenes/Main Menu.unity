@@ -913,6 +913,8 @@ MonoBehaviour:
   main: {fileID: 1998138309}
   settings: {fileID: 1044674933}
   mixer: {fileID: 24100000, guid: 3e93decef437d214f9c68ac176e1737c, type: 2}
+  musicSl: {fileID: 443476549}
+  soundSl: {fileID: 561729006}
 --- !u!1 &443476547
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,8 +3836,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579551776}
-  - component: {fileID: 1579551775}
   - component: {fileID: 1579551777}
+  - component: {fileID: 1579551775}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3855,6 +3857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9d5401f728740418727017f2a725ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   music: {fileID: 1579551777}
   menuClip: {fileID: 8300000, guid: 2bc16c2cc3197794a93f3a43d5cac330, type: 3}
   gameplayClip:

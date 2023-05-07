@@ -26,7 +26,13 @@ public class Square : MonoBehaviour
 
     void Update()
     {
-        Start_LoadShoot();
+        if (!MenuPause.mPause.pause) Start_LoadShoot();
+        else
+        {
+            StopAllCoroutines();
+            shotCoro = null;
+            timerCoro = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

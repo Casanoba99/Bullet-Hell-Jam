@@ -53,35 +53,38 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (ammo)
+        if (!MenuPause.mPause.pause)
         {
-            if (!isDash) Move();
-            Rotation();
-        }
-
-        if (Input.GetMouseButton(0) && currentShots > 0)
-        {
-            if (!isDash)
+            if (ammo)
             {
-                Start_Shoot();
-                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+                if (!isDash) Move();
+                Rotation();
             }
-        }
-        else if (currentShots <= 0 && ammo)
-        {
-            anim.SetTrigger("Fall");
-            anim.SetBool("Floor", false);
-            ammo = false;
-        }
-        else
-        {
-            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
-            Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
-        }
 
-        if (Input.GetMouseButtonDown(1) && inputVector != Vector2.zero)
-        {
-            Start_Dash();
+            if (Input.GetMouseButton(0) && currentShots > 0)
+            {
+                if (!isDash)
+                {
+                    Start_Shoot();
+                    vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+                }
+            }
+            else if (currentShots <= 0 && ammo)
+            {
+                anim.SetTrigger("Fall");
+                anim.SetBool("Floor", false);
+                ammo = false;
+            }
+            else
+            {
+                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+                Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
+
+            if (Input.GetMouseButtonDown(1) && inputVector != Vector2.zero)
+            {
+                Start_Dash();
+            }
         }
     }
 
@@ -106,7 +109,6 @@ public class PlayerInput : MonoBehaviour
 
         if (collision.CompareTag("End"))
         {
-            // Cargar nivel
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
