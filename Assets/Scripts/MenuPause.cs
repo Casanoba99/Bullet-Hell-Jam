@@ -49,9 +49,11 @@ public class MenuPause : MonoBehaviour
     public void ReturnMenu()
     {
         GameManager gm = GameManager.manager;
-        SceneManager.LoadScene(0);
         gm.music.loop = true;
         gm.music.clip = gm.menuClip;
         gm.music.Play();
+
+        Cursor.SetCursor(null, Vector2.zero, 0);
+        SceneManager.LoadScene(0);
     }
 }

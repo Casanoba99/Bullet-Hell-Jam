@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public AudioClip menuClip;
     public AudioClip[] gameplayClip;
 
+    [Header("Cursor")]
+    public Texture2D cursor;
+
     void Start()
     {
         music.clip = menuClip;
@@ -35,6 +38,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            string date = System.DateTime.Now.ToString("dd-MM-yy_HH-mm-ss");
+            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Screenshot_" + date + ".png");
+        }
+
         if (!music.isPlaying)
         {
             StartGameplay();
@@ -47,5 +56,7 @@ public class GameManager : MonoBehaviour
         clip = Random.Range(0, 1);
         music.clip = gameplayClip[clip];
         music.Play();
+
+        Cursor.SetCursor(cursor, new Vector2(64, 64), 0);
     }
 }

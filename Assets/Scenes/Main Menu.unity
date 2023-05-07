@@ -3857,12 +3857,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9d5401f728740418727017f2a725ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   music: {fileID: 1579551777}
   menuClip: {fileID: 8300000, guid: 2bc16c2cc3197794a93f3a43d5cac330, type: 3}
   gameplayClip:
   - {fileID: 8300000, guid: ff114e0ffb59f4e459305b01ffb3beec, type: 3}
   - {fileID: 8300000, guid: 8445133d9c2ceba4bb541882167ea55f, type: 3}
+  cursor: {fileID: 2800000, guid: 9acbea8e6fc979645bf9639e5e41019f, type: 3}
 --- !u!4 &1579551776
 Transform:
   m_ObjectHideFlags: 0

@@ -1425,6 +1425,14 @@ PrefabInstance:
       propertyPath: maxShots
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7684303373024161786, guid: bc09cf1c10e05cf4cbab78d447b46dc7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 7684303373024161791, guid: bc09cf1c10e05cf4cbab78d447b46dc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc09cf1c10e05cf4cbab78d447b46dc7, type: 3}
 --- !u!4 &1117716938 stripped
