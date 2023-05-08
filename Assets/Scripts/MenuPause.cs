@@ -31,6 +31,7 @@ public class MenuPause : MonoBehaviour
 
             if (pause)
             {
+                Cursor.SetCursor(null, Vector2.zero, 0);
                 panelP.SetActive(true);
             }
             else
@@ -44,6 +45,7 @@ public class MenuPause : MonoBehaviour
     {
         pause = false;
         panelP.SetActive(false);
+        Cursor.SetCursor(GameManager.manager.cursor, new Vector2(64, 64), 0);
     }
 
     public void ReturnMenu()

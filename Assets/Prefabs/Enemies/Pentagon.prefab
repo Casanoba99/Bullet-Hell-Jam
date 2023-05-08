@@ -245,7 +245,7 @@ MonoBehaviour:
   path: {fileID: 0}
   point: 0
   torque: 90
-  stopTime: 1
+  stopTime: 0.5
   speed: 3
   points:
   - {fileID: 4765359345552354605}
