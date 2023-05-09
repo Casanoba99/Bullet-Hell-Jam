@@ -636,6 +636,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1832006080059980042, guid: 3d6206e3f4c568947979243bb29c8098, type: 3}
   m_PrefabInstance: {fileID: 203421679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &206235715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206235716}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206235716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206235715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1368158, y: -0.09746095, z: -0.031115323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223076975
 GameObject:
   m_ObjectHideFlags: 3
@@ -3326,6 +3357,7 @@ GameObject:
   - component: {fileID: 1260588385}
   - component: {fileID: 1260588384}
   - component: {fileID: 1260588383}
+  - component: {fileID: 1260588387}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3416,6 +3448,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1260588387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260588382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c3b4a4b15a8304b9d1d054f6af0f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause: 0
+  panelP: {fileID: 206235715}
 --- !u!1001 &1331278619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4155,8 +4201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: 1
-  bridge:
-  - {fileID: 0}
+  bridge: []
 --- !u!61 &1788026111
 BoxCollider2D:
   m_ObjectHideFlags: 0

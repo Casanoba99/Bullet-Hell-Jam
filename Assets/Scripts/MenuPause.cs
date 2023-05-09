@@ -45,7 +45,7 @@ public class MenuPause : MonoBehaviour
     {
         pause = false;
         panelP.SetActive(false);
-        Cursor.SetCursor(GameManager.manager.cursor, new Vector2(64, 64), 0);
+        //Cursor.SetCursor(GameManager.manager.cursor, new Vector2(64, 64), 0);
     }
 
     public void ReturnMenu()
