@@ -252,6 +252,8 @@ MonoBehaviour:
   - {fileID: 4765359346580514719}
   - {fileID: 5879430336423569319}
   - {fileID: 5879430336484280362}
+  probability: 3
+  ammo: {fileID: 1852174884776784009, guid: 5ea84962ed296d742b5daaeb166d59a9, type: 3}
   timeShot: 0.2
   forceShot: 5
   shotPos:

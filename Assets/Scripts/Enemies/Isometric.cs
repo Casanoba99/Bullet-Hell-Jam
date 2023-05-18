@@ -17,6 +17,10 @@ public class Isometric : MonoBehaviour
     public float speed;
     public Transform[] points;
 
+    [Header("Drop ammo")]
+    public int probability;
+    public GameObject ammo;
+
     [Header("Shoot")]
     public int amountShots;
     public float waitTime;
@@ -65,6 +69,8 @@ public class Isometric : MonoBehaviour
             if (life <= 0)
             {
                 path.enemies--;
+                int n = Random.Range(0, (probability * 2) + 1);
+                if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
                 Destroy(gameObject);
             }
         }

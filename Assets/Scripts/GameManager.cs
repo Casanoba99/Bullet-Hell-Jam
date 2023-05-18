@@ -59,6 +59,6 @@ public class GameManager : MonoBehaviour
         music.clip = gameplayClip[clip];
         music.Play();
 
-        //Cursor.SetCursor(cursor, new Vector2(64, 64), 0);
+        Cursor.SetCursor(cursor, new Vector2(cursor.width/ 2 , cursor.height / 2), 0);
     }
 }

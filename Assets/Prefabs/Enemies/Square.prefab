@@ -407,6 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 10
   path: {fileID: 0}
+  probability: 2
+  ammo: {fileID: 1852174884776784009, guid: 5ea84962ed296d742b5daaeb166d59a9, type: 3}
   amountShots: 10
   time2Shoot: 2.5
   timeShot: 0.2

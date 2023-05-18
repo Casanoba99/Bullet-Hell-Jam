@@ -10,6 +10,10 @@ public class Square : MonoBehaviour
     public int life;
     public OpenPath path;
 
+    [Header("Drop ammo")]
+    public int probability;
+    public GameObject ammo;
+
     [Header("Shoot")]
     public int amountShots;
     public float time2Shoot;
@@ -50,6 +54,8 @@ public class Square : MonoBehaviour
             if (life <= 0)
             {
                 path.enemies--;
+                int n = Random.Range(0, (probability * 2) + 1);
+                if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
                 Destroy(gameObject);
             }
         }

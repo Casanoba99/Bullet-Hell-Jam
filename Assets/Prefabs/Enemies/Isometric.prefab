@@ -432,6 +432,8 @@ MonoBehaviour:
   points:
   - {fileID: 1832006079159239769}
   - {fileID: 1832006080190484203}
+  probability: 2
+  ammo: {fileID: 1852174884776784009, guid: 5ea84962ed296d742b5daaeb166d59a9, type: 3}
   amountShots: 10
   waitTime: 2.5
   timeShot: 0.2

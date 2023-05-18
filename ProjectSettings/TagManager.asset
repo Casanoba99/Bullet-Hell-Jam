@@ -10,6 +10,7 @@ TagManager:
   - Enemy P
   - End
   - Clear
+  - Ammo
   layers:
   - Default
   - TransparentFX

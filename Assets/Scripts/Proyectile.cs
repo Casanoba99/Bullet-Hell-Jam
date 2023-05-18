@@ -27,6 +27,7 @@ public class Proyectile : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         sprite.enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = false;
         light.SetActive(false);
         particle.Play();
 

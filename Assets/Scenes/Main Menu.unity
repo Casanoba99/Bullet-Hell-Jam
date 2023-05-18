@@ -1304,7 +1304,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.055215385, g: 0.072557606, b: 0.103773594, a: 0}
+  m_BackGroundColor: {r: 0.08343715, g: 0.10763393, b: 0.14150941, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3908,7 +3908,7 @@ MonoBehaviour:
   gameplayClip:
   - {fileID: 8300000, guid: ff114e0ffb59f4e459305b01ffb3beec, type: 3}
   - {fileID: 8300000, guid: 8445133d9c2ceba4bb541882167ea55f, type: 3}
-  cursor: {fileID: 2800000, guid: 9acbea8e6fc979645bf9639e5e41019f, type: 3}
+  cursor: {fileID: 2800000, guid: b65b5d956c27d56438f07a1f5b224fe0, type: 3}
 --- !u!4 &1579551776
 Transform:
   m_ObjectHideFlags: 0

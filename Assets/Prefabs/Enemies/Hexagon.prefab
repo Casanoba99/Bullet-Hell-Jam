@@ -872,6 +872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 10
   path: {fileID: 0}
+  probability: 3
+  ammo: {fileID: 1852174884776784009, guid: 5ea84962ed296d742b5daaeb166d59a9, type: 3}
   point: 1
   torque: -30
   stopTime: 1.5

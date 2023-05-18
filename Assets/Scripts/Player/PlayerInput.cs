@@ -14,7 +14,7 @@ public class PlayerInput : MonoBehaviour
     Animator anim;
     Coroutine shootCoro, dashCoro;
 
-    public new GameObject light;
+    public GameObject light;
 
     [Header("Movement")]
     public float speed;
@@ -110,6 +110,12 @@ public class PlayerInput : MonoBehaviour
         if (collision.CompareTag("End"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (collision.CompareTag("Ammo"))
+        {
+            currentShots += 10;
+            shotsTMP.text = currentShots.ToString();
         }
     }
 

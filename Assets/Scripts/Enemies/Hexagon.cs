@@ -12,6 +12,10 @@ public class Hexagon : MonoBehaviour
     public int life;
     public OpenPath path;
 
+    [Header("Drop ammo")]
+    public int probability;
+    public GameObject ammo;
+
     [Header("Movement")]
     public int point;
     public float torque;
@@ -64,6 +68,8 @@ public class Hexagon : MonoBehaviour
             if (life <= 0)
             {
                 path.enemies--;
+                int n = Random.Range(0, (probability * 2) + 1);
+                if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
                 Destroy(gameObject);
             }
         }
@@ -92,28 +98,4 @@ public class Hexagon : MonoBehaviour
 
         stopCoro = null;
     }
-
-    //public void Start_Shot()
-    //{
-    //    shotCoro ??= StartCoroutine(Shot());
-    //}
-
-    //IEnumerator Shot()
-    //{
-    //    laserOut = true;
-    //    for (int j = 0; j < shotPos.Length; j++)
-    //    {
-    //        shotPos[j].gameObject.SetActive(true);
-    //    }
-
-    //    yield return new WaitForSeconds(timeShot);
-
-    //    for (int j = 0; j < shotPos.Length; j++)
-    //    {
-    //        shotPos[j].gameObject.SetActive(false);
-    //    }
-    //    laserOut = false;
-
-    //    shotCoro = null;
-    //}
 }
