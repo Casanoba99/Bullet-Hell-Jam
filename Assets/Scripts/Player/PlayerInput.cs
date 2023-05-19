@@ -66,7 +66,7 @@ public class PlayerInput : MonoBehaviour
                 if (!isDash)
                 {
                     Start_Shoot();
-                    vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+                    vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = .5f;
                 }
             }
             else if (currentShots <= 0 && ammo)

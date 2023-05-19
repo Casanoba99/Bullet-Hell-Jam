@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Hexagon : MonoBehaviour
 {
+    bool canMove = true;
     bool havePath = false;
     Transform currentP;
     Coroutine shotCoro, stopCoro;
     Animator anim;
+    AudioSource source;
 
     public int life;
     public OpenPath path;
@@ -26,12 +28,13 @@ public class Hexagon : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         currentP = points[point];
     }
 
     void Update()
     {
-        if (!MenuPause.mPause.pause)
+        if (!MenuPause.mPause.pause && canMove)
         {
             transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
 
@@ -67,10 +70,16 @@ public class Hexagon : MonoBehaviour
             collision.GetComponent<Proyectile>().Hit();
             if (life <= 0)
             {
+                source.Play();
+                anim.SetBool("Laser", false);
+                canMove = false;
+                transform.GetChild(0).gameObject.SetActive(false);
+
                 path.enemies--;
                 int n = Random.Range(0, (probability * 2) + 1);
                 if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
-                Destroy(gameObject);
+
+                Destroy(gameObject, 1);
             }
         }
     }

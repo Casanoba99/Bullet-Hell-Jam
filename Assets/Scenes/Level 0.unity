@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 1
   m_FrequencyGain: 0.5
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &303693060 stripped
@@ -1838,6 +1838,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 45488643}
     m_Modifications:
+    - target: {fileID: 7147059681054264565, guid: 31de3014f76cd0d40b640de29c0eee7b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147059681054264567, guid: 31de3014f76cd0d40b640de29c0eee7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7147059681068844578, guid: 31de3014f76cd0d40b640de29c0eee7b, type: 3}
       propertyPath: m_Name
       value: Square (1)

@@ -8,10 +8,10 @@ public class Ammo : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GetComponent<AudioSource>().Play();
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<PolygonCollider2D>().enabled = false;
             transform.GetChild(0).gameObject.SetActive(false);
-            // reproducir sonido
             Destroy(gameObject, 1);
         }
     }

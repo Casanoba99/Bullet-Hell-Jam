@@ -24,10 +24,10 @@ public class MenuManager : MonoBehaviour
         Sound(PlayerPrefs.GetFloat("Sound"));
     }
 
-    public void Play()
+    public void Play(int scene)
     {
         GameManager.manager.StartGameplay();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene);
     }
 
     public void OpenPanel(GameObject panel)

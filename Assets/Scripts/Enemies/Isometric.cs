@@ -7,6 +7,7 @@ public class Isometric : MonoBehaviour
 {
     Transform currentP;
     Animator anim;
+    AudioSource source;
     Coroutine shotCoro, timerCoro;
 
     public int life;
@@ -32,6 +33,7 @@ public class Isometric : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         currentP = points[point];
     }
 
@@ -68,10 +70,15 @@ public class Isometric : MonoBehaviour
             collision.GetComponent<Proyectile>().Hit();
             if (life <= 0)
             {
+                amountShots = 0;
+                source.Play();
+                transform.GetChild(0).gameObject.SetActive(false);
+
                 path.enemies--;
                 int n = Random.Range(0, (probability * 2) + 1);
                 if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
-                Destroy(gameObject);
+
+                Destroy(gameObject, 1);
             }
         }
     }

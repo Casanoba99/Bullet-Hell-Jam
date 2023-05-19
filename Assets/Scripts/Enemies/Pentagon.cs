@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Pentagon : MonoBehaviour
 {
+    bool canMove = true;
+
     Transform currentP;
+    AudioSource source;
     Coroutine shotCoro, stopCoro;
 
     public int life;
@@ -29,12 +32,13 @@ public class Pentagon : MonoBehaviour
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         currentP = points[point];
     }
 
     void Update()
     {
-        if (!MenuPause.mPause.pause)
+        if (!MenuPause.mPause.pause && canMove)
         {
             transform.position = Vector3.MoveTowards(transform.position, currentP.position, speed * Time.deltaTime);
 
@@ -70,10 +74,15 @@ public class Pentagon : MonoBehaviour
             collision.GetComponent<Proyectile>().Hit();
             if (life <= 0)
             {
+                canMove = false;
+                source.Play();
+                transform.GetChild(0).gameObject.SetActive(false);
+
                 path.enemies--;
                 int n = Random.Range(0, (probability * 2) + 1);
                 if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
-                Destroy(gameObject);
+
+                Destroy(gameObject, 1);
             }
         }
     }

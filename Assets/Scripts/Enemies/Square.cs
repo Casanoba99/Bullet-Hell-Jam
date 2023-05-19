@@ -5,6 +5,7 @@ using UnityEngine;
 public class Square : MonoBehaviour
 {
     Animator anim;
+    AudioSource source;
     Coroutine shotCoro, timerCoro;
 
     public int life;
@@ -26,6 +27,7 @@ public class Square : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -53,10 +55,15 @@ public class Square : MonoBehaviour
             collision.GetComponent<Proyectile>().Hit();
             if (life <= 0)
             {
+                amountShots = 0;
+                source.Play();
+                transform.GetChild(1).gameObject.SetActive(false);
+
                 path.enemies--;
                 int n = Random.Range(0, (probability * 2) + 1);
                 if (n <= probability) _ = Instantiate(ammo, transform.position, ammo.transform.rotation, null);
-                Destroy(gameObject);
+
+                Destroy(gameObject, 1);
             }
         }
     }
