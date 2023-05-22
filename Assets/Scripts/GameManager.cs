@@ -1,13 +1,17 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Sockets;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Serializable]
+    public struct PlayerDead
+    {
+        public Vector2 position;
+        public Quaternion quaternion;
+    }
+
     #region Singleton
     public static GameManager manager;
 
@@ -32,6 +36,10 @@ public class GameManager : MonoBehaviour
     [Header("Cursor")]
     public Texture2D cursor;
 
+    [Header("Deads")]
+    public GameObject deadPfb;
+    public List<PlayerDead> deads;
+
     void Start()
     {
         music.clip = menuClip;
@@ -55,10 +63,26 @@ public class GameManager : MonoBehaviour
     public void StartGameplay()
     {
         music.loop = false;
-        clip = Random.Range(0, 1);
+        clip = UnityEngine.Random.Range(0, 1);
         music.clip = gameplayClip[clip];
         music.Play();
 
         Cursor.SetCursor(cursor, new Vector2(cursor.width/ 2 , cursor.height / 2), 0);
+    }
+
+    public void AddPlayerDead(Vector2 pos, Quaternion rot)
+    {
+        PlayerDead dead;
+        dead.position = pos;
+        dead.quaternion = rot;
+        deads.Add(dead);
+    }
+
+    public void InstantiateDead()
+    {
+        for (int i = 0; i < deads.Count; i++)
+        {
+            _ = Instantiate(deadPfb, deads[i].position, deads[i].quaternion);
+        }
     }
 }

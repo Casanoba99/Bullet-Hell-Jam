@@ -44,6 +44,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
+        GameManager.manager.InstantiateDead();
         anim = GetComponent<Animator>();
         vCam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         trail.emitting = false;
@@ -109,6 +110,7 @@ public class PlayerInput : MonoBehaviour
 
         if (collision.CompareTag("End"))
         {
+            GameManager.manager.deads.Clear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
@@ -204,9 +206,9 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(timeShot);
         shootCoro = null;
     }
-
     public void Dead()
     {
+        GameManager.manager.AddPlayerDead(transform.position, transform.rotation);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
